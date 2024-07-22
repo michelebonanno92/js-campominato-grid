@@ -15,7 +15,23 @@ Ad esempio:
 Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Le validazioni e i controlli possiamo farli anche in un secondo momento. (modificato) 
-
-
  */
+
+
+const cells = parseInt(100);
+console.log('cells', cells, typeof cells);
+
+
+const myRow = document.getElementById('my-row');
+
+for (let i = 0; i < cells ; i++) {
+    const cell = document.createElement('div');
+    cell.innerHTML = i + 1 ;
+   
+    cell.addEventListener('click', function () {
+        cell.classList.toggle('color');
+    })
+
+    myRow.append(cell);
+}
 
