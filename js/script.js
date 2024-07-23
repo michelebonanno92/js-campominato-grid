@@ -18,13 +18,30 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento. (modificato) 
  */
 
-const startButton = document.getElementById('start-button') ;
+const startButton = document.getElementById('start-button');
 
 startButton.addEventListener('click', function(){
 
     const gridContainer = document.getElementById('grid-container');
 
+    const diffSelect = document.getElementById('difficulty');
+    console.log( diffSelect.value); 
+
+
+    let cellsNumber = 100;
+
+    if ( diffSelect.value == "2" ) {
+        cellsNumber = 81; 
+    } 
+    else if ( diffSelect.value == '3') {
+        cellsNumber = 49; 
+    }
+
+    gridContainer.innerHTML = '' ; 
+    
+
     for (let i = 1; i <= 100 ; i++) {
+
      /* 
         per creare un nuovo elemento HTML , abbiamo due strade :
         1) 
@@ -36,23 +53,17 @@ startButton.addEventListener('click', function(){
     cell.innerHTML = i ; 
     gridContainer.append(cell);
 
+
     cell.addEventListener('click' , function() {
-        cell.classList.toggle('clicked');
-        console.log('la cella cliccata è la numero : ' + i);
+        // console.log('this' , this , typeof this );
+        this.classList.toggle('clicked');
+        // console.log(this);
+        // console.log(this.innerHTML);
+        // console.log(this.textContent);
+        // console.log(this.innerText);
+        console.log('la cella cliccata è la numero : ' + this.innerHTML);
 
     })
-    
-   
-
-   
-
-    // console.log(cell)
-    // cell.addEventListener('click', function() {
-
-    // }) 
-     
-     
-   
  }
 
 })
