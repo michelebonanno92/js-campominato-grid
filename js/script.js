@@ -1,4 +1,5 @@
-/* 
+/* ` backtick ` tilde ~
+
 Consegna
 L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
 Ogni cella ha un numero progressivo, da 1 a 100.
@@ -17,21 +18,64 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento. (modificato) 
  */
 
+const startButton = document.getElementById('start-button') ;
 
-const cells = parseInt(100);
-console.log('cells', cells, typeof cells);
+startButton.addEventListener('click', function(){
 
+    const gridContainer = document.getElementById('grid-container');
 
-const myRow = document.getElementById('my-row');
-
-for (let i = 0; i < cells ; i++) {
+    for (let i = 1; i <= 100 ; i++) {
+     /* 
+        per creare un nuovo elemento HTML , abbiamo due strade :
+        1) 
+        con document.createElement -> in questo caso specifico ci conviene usa document.createElement perchè dovremo selezionare l'elemento per intercettarne il click (per metterlo in ascolto dell'evento con addEvenListener )
+        2)
+        con una stringa e innerHTML 
+     */
     const cell = document.createElement('div');
-    cell.innerHTML = i + 1 ;
-   
-    cell.addEventListener('click', function () {
-        cell.classList.toggle('color');
-    })
+    cell.innerHTML = i ; 
+    gridContainer.append(cell);
 
-    myRow.append(cell);
-}
+    cell.addEventListener('click' , function() {
+        cell.classList.toggle('clicked');
+        console.log('la cella cliccata è la numero : ' + i);
+
+    })
+    
+   
+
+   
+
+    // console.log(cell)
+    // cell.addEventListener('click', function() {
+
+    // }) 
+     
+     
+   
+ }
+
+})
+
+
+
+
+
+
+// const cells = parseInt(100);
+// console.log('cells', cells, typeof cells);
+
+
+// const myRow = document.getElementById('my-row');
+
+// for (let i = 0; i < cells ; i++) {
+//     const cell = document.createElement('div');
+//     cell.innerHTML = i + 1 ;
+   
+//     cell.addEventListener('click', function () {
+//         cell.classList.toggle('color');
+//     })
+
+//     myRow.append(cell);
+// }
 
