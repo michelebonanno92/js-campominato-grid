@@ -24,23 +24,26 @@ startButton.addEventListener('click', function(){
 
     const gridContainer = document.getElementById('grid-container');
 
-    const diffSelect = document.getElementById('difficulty');
-    console.log( diffSelect.value); 
+    const diffSelect = document.getElementById('difficulty').value;
+    
+    // console.log("difficoltà del gioco:", diffSelect.value);
 
 
     let cellsNumber = 100;
 
-    if ( diffSelect.value == "2" ) {
+    if ( diffSelect == "2" ) {
         cellsNumber = 81; 
     } 
-    else if ( diffSelect.value == '3') {
+    else if ( diffSelect == '3') {
         cellsNumber = 49; 
     }
+
+    console.log( "valore della difficoltà: ", cellsNumber )
 
     gridContainer.innerHTML = '' ; 
     
 
-    for (let i = 1; i <= 100 ; i++) {
+    for (let i = 1; i <= cellsNumber ; i++) {
 
      /* 
         per creare un nuovo elemento HTML , abbiamo due strade :
@@ -54,6 +57,17 @@ startButton.addEventListener('click', function(){
     gridContainer.append(cell);
 
 
+    if ( cellsNumber == 100){
+        cell.classList.add('difficulty-one');
+
+    }else if ( cellsNumber == 81) {
+        cell.classList.add('difficulty-two')
+
+    }else if ( cellsNumber == 49) {
+        cell.classList.add('difficulty-three')
+    }
+
+
     cell.addEventListener('click' , function() {
         // console.log('this' , this , typeof this );
         this.classList.toggle('clicked');
@@ -64,6 +78,11 @@ startButton.addEventListener('click', function(){
         console.log('la cella cliccata è la numero : ' + this.innerHTML);
 
     })
+
+    // cell.addEventListener('click', () => {
+    //     // console.log('this arrow' , this , typeof this );
+
+    // })
  }
 
 })
