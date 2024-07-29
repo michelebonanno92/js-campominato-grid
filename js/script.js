@@ -88,6 +88,10 @@ startButton.addEventListener('click', function(){
 })
 
 
+for(let i = array.length; i > 0; i--) {
+    console.log(array[i]);
+}
+
 
 
 

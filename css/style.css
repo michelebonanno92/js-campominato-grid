@@ -83,4 +83,9 @@ main{
    border-radius: 20px;
    font-weight: bold;
    font-size: 1.5rem;
+   cursor: pointer;
+  }
+
+  option{
+   cursor: pointer;
   }
